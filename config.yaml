@@ -1,0 +1,14 @@
+data:
+  hg38: data/raw/hg38.fa.gz
+  gnomad_dir: data/raw/gnomad
+  clinvar_dir: data/raw/clinvar
+  dms_dir: data/raw/dms
+  omim: data/raw/omim.txt
+  processed_clinvar: data/processed_clinvar.csv
+  processed_dms: data/processed_dms.csv
+  genome_chunk_dir: data/genome_chunks
+  genome_chunk_index: data/genome_chunk_index.csv
+  result_dir: data/results
+  clinvar_eval: data/clinvar_eval.csv
+  gnomad_eval: data/gnomad_eval.csv
+  dms_eval: data/dms_eval.csv

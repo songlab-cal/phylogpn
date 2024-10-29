@@ -1,0 +1,5 @@
+outer_dim: 960
+inner_dim: 480
+stack_size: 2
+num_stacks: 20
+kernel_size: 5
