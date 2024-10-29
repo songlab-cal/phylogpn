@@ -10,5 +10,5 @@ data:
   genome_chunk_index: data/genome_chunk_index.csv
   result_dir: data/results
   clinvar_eval: data/clinvar_eval.csv
-  gnomad_eval: data/gnomad_eval.csv
+  omim_eval: data/omim_eval.csv
   dms_eval: data/dms_eval.csv
