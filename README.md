@@ -5,19 +5,19 @@ To reproduce our results for the variant effect prediction evaluation, follow th
 2. Download the PhyloGPN checkpoint:
     - `gdown "https://drive.google.com/uc?id=1MSxLYbZKSnWjbM_w1cHGVFffrwh8j64V" -O ./PhyloGPN/checkpoint.pt`
 
-3. Download the required raw data by running the following commands:
+3. Download the required raw data:
     - `invoke download-hg38`
     - `invoke download-omim`
     - `invoke download-latest-clinvar`
     - `invoke download-dms-data`
     - `invoke download-and-process-gnomad`
 
-4. Process the raw data by running the following commands:
+4. Process the raw data:
     - `invoke chunk-hg38`
     - `invoke process-clinvar`
     - `invoke process-dms-data`
 
-5. Generate log likelihood ratios for models:
+5. Generate log likelihood ratios:
     - `invoke generate-vep-results --model phylogpn`
     - `invoke generate-vep-results --model caduceus_131k`
     - `invoke generate-vep-results --model hyenadna_medium_160k`
