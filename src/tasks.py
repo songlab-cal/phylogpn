@@ -548,7 +548,7 @@ def merge_clinvar_results(context):
     pd.concat(df_list, ignore_index=True).to_csv(config["data"]["clinvar_eval"], index=False)
 
 
-def _process_omim_gnomad_results(model_name, result_df, num_bins: int):
+def _process_omim_results(model_name, result_df, num_bins: int):
     with open(config["data"]["omim"], "r") as f:
         omim_variants = [line.strip() for line in f]
 
@@ -592,7 +592,7 @@ def _process_omim_gnomad_results(model_name, result_df, num_bins: int):
 
 
 @task
-def merge_omim_gnomad_results(context, num_bins: int = 5):
+def merge_omim_results(context, num_bins: int = 5):
     file_paths = glob.glob(f"{config['data']['result_dir_path']}/*.csv")
     file_paths = [x for x in file_paths if "full" not in x]
     model_to_result_df_list = defaultdict(list)
@@ -611,7 +611,7 @@ def merge_omim_gnomad_results(context, num_bins: int = 5):
     args_ = [(model_name, df, num_bins) for model_name, df in model_to_result_df.items()]
 
     with Pool(processes=4) as pool:
-        df_list = pool.starmap(_process_omim_gnomad_results, args_)
+        df_list = pool.starmap(_process_omim_results, args_)
 
     label_df = pd.concat(df_list, ignore_index=True)
     cols = [col for col in label_df.columns if col.startswith("label")]
@@ -630,7 +630,7 @@ def merge_omim_gnomad_results(context, num_bins: int = 5):
             results["auroc"].append(roc_auc_score(labels, preds))
             results["auprc"].append(average_precision_score(labels, preds))
     
-    pd.DataFrame(results).to_csv(config["data"]["gnomad_eval"], index=False)
+    pd.DataFrame(results).to_csv(config["data"]["omim_eval"], index=False)
 
 
 @task
