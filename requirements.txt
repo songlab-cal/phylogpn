@@ -20,6 +20,7 @@ flit==3.9.0
 flit_core==3.9.0
 gast==0.5.4
 google-pasta==0.2.0
+gdown
 greenlet==3.0.3
 grpcio==1.62.1
 gurobipy==11.0.1
