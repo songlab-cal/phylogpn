@@ -17,7 +17,7 @@ To reproduce our results for the variant effect prediction evaluation, follow th
     - `invoke process-clinvar`
     - `invoke process-dms-data`
 
-5. Generate log-likelihood ratios for models:
+5. Generate log likelihood ratios for models:
     - `invoke generate-vep-results --model phylogpn`
     - `invoke generate-vep-results --model caduceus_131k`
     - `invoke generate-vep-results --model hyenadna_medium_160k`
@@ -30,4 +30,4 @@ To reproduce our results for the variant effect prediction evaluation, follow th
 
 The results should be in `data/clinvar_eval.csv`, `data/omim_eval.csv`, and `data/dms_eval.csv`.
 
-
+For a tutorial on how to obtain likelihoods, rate parameters, and embeddings from PhyloGPN, refer to  `notebooks/example.ipynb`
